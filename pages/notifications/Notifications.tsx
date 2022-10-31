@@ -1,11 +1,12 @@
 import { useEffect, useState, useContext, useCallback } from 'react';
-import { Web3Context } from '../context';
+import { Web3Context } from '../context/Web3Context';
 import * as PushAPI from '@pushprotocol/restapi';
 import { NotificationItem, chainNameType } from '@pushprotocol/uiweb';
 import { Text } from '@chakra-ui/react';
 
 
 const Notifications = () => {
+
   const { account } = useContext<any>(Web3Context);
   const [notifs, setNotifs] = useState<PushAPI.ParsedResponseType[]>();
 

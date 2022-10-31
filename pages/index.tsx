@@ -1,20 +1,16 @@
-import { Web3Context } from './context';
+import { Web3Context } from './context/Web3Context';
 import { useWeb3React } from "@web3-react/core";
-import NotificationsTest from './notifications/Notifications';
+import Notifications from './notifications/Notifications';
 import ConnectButton from './components/Connect';
 import { useAccount } from 'wagmi';
 import { Center, Container, Text, VStack } from '@chakra-ui/react';
 
 interface Web3ReactState {
-  chainId?: number;
-  account?: string | null | undefined;
   active: boolean;
-  error?: Error;
-  library?: unknown;
 }
 
-const checkForWeb3Data = ({ library, active, chainId  } : Web3ReactState) => {
-  return library && active && chainId;
+const checkForWeb3Data = ({ active  } : Web3ReactState) => {
+  return active ;
 }
 
 
@@ -24,16 +20,16 @@ export default function Home() {
 
   return (
     <Container>
-      <Center marginTop={'20rem'}>
+      <Center marginTop={'5rem'}>
         <VStack>
-        <Text fontSize='4xl'>Push Protocol SDK Starter Kit App</Text>
-        <ConnectButton />
+          <Text fontSize='4xl'>Push Protocol SDK Starter Kit App</Text>
+          <ConnectButton />
         </VStack>
       </Center>
 
       {checkForWeb3Data(web3Data) && isConnected ? (
         <Web3Context.Provider value={web3Data}>
-             <NotificationsTest />
+             <Notifications />
         </Web3Context.Provider>
       ) : null}
     </Container>

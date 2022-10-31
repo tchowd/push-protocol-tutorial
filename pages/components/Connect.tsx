@@ -26,7 +26,6 @@ const Auth = () => {
   
   return (
     <div>
-
       {active && isConnected ? (
           <VStack>
             <Text fontSize='xl'>Connected with: <br></br> 
