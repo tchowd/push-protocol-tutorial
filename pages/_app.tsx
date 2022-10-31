@@ -1,11 +1,10 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import { ethers } from "ethers";
 import { Web3ReactProvider } from "@web3-react/core";
 import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { chain, configureChains, createClient, createStorage, WagmiConfig } from 'wagmi';
+import { chain, configureChains, createClient, WagmiConfig } from 'wagmi';
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import { publicProvider } from 'wagmi/providers/public';
 import '@rainbow-me/rainbowkit/styles.css';
@@ -16,6 +15,7 @@ function getLibrary(provider: any) {
   const gottenProvider = new ethers.providers.Web3Provider(provider, "any");
   return gottenProvider;
 }
+
 const { chains, provider } = configureChains(
   [chain.goerli], 
   [

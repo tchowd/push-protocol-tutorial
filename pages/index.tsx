@@ -1,7 +1,6 @@
-import styles from '../styles/Home.module.css'
 import { Web3Context } from './context';
 import { useWeb3React } from "@web3-react/core";
-import NotificationsTest from './notifications';
+import NotificationsTest from './notifications/Notifications';
 import ConnectButton from './components/Connect';
 import { useAccount } from 'wagmi';
 import { Center, Container, Text, VStack } from '@chakra-ui/react';

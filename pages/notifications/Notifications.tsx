@@ -5,7 +5,7 @@ import { NotificationItem, chainNameType } from '@pushprotocol/uiweb';
 import { Text } from '@chakra-ui/react';
 
 
-const NotificationsTest = () => {
+const Notifications = () => {
   const { account } = useContext<any>(Web3Context);
   const [notifs, setNotifs] = useState<PushAPI.ParsedResponseType[]>();
 
@@ -77,4 +77,4 @@ const NotificationsTest = () => {
   );
 }
 
-export default NotificationsTest;
+export default Notifications;

@@ -1,7 +1,7 @@
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { useWeb3React } from "@web3-react/core"
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { useAccount, useDisconnect } from "wagmi";
 import { Button, Text, VStack } from "@chakra-ui/react";
 
 
@@ -10,10 +10,9 @@ const injected = new InjectedConnector({
 })
 
 
-const ConnectButton1 = () => {
-  const { active, account, activate, deactivate, chainId } = useWeb3React()
-
-  const {address, isConnected, isDisconnected} = useAccount()
+const Auth = () => {
+  const { active, account, activate } = useWeb3React()
+  const { isConnected, isDisconnected} = useAccount()
   const { disconnect } = useDisconnect()
 
   async function connect() {
@@ -52,4 +51,4 @@ const ConnectButton1 = () => {
   )
 };
 
-export default ConnectButton1;
+export default Auth;
