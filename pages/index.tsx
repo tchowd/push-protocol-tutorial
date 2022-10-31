@@ -1,11 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Web3Context } from './context';
 import { useWeb3React } from "@web3-react/core";
 import NotificationsTest from './notifications';
 import ConnectButton from './components/Connect';
 import { useAccount } from 'wagmi';
+import { Center, Container, Text, VStack } from '@chakra-ui/react';
 
 interface Web3ReactState {
   chainId?: number;
@@ -25,17 +24,19 @@ export default function Home() {
   const { isConnected} = useAccount()
 
   return (
-    <div className={styles.container}>
-      <div >
-        <h1>Push Protocol SDK Starter Kit App</h1>
+    <Container>
+      <Center marginTop={'20rem'}>
+        <VStack>
+        <Text fontSize='4xl'>Push Protocol SDK Starter Kit App</Text>
         <ConnectButton />
-      </div>
+        </VStack>
+      </Center>
 
       {checkForWeb3Data(web3Data) && isConnected ? (
         <Web3Context.Provider value={web3Data}>
              <NotificationsTest />
         </Web3Context.Provider>
       ) : null}
-    </div>
+    </Container>
   )
 }

@@ -2,7 +2,7 @@ import { InjectedConnector } from '@web3-react/injected-connector'
 import { useWeb3React } from "@web3-react/core"
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { Button } from "@chakra-ui/react";
+import { Button, Text, VStack } from "@chakra-ui/react";
 
 
 const injected = new InjectedConnector({
@@ -29,20 +29,22 @@ const ConnectButton1 = () => {
     <div>
 
       {active && isConnected ? (
-          <>
-            <p>Connected with <span className="account">{account}</span></p>
-            <p>{address}</p>
-            
-            {active && isConnected ? <button onClick={() => disconnect()}>Disconnect Metamask</button> : isDisconnected}
-          </>
+          <VStack>
+            <Text fontSize='xl'>Connected with: <br></br> 
+              {account}
+              </Text>
+            {active && isConnected ? 
+            <Button onClick={() => disconnect()} colorScheme='messenger'>Disconnect Metamask</Button> 
+            : isDisconnected}
+          </VStack>
       ) : ( 
         <>
+        <VStack>
           <ConnectButton/> 
-
           {isConnected  ? 
-            <Button onClick={() => connect()}> Enter Page</Button> : null
-          }
-
+            <Button onClick={() => connect()} colorScheme='messenger'> Enter Page</Button> 
+          : null }
+        </VStack>
         </>
       )}
 

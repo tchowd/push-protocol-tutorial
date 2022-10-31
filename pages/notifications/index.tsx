@@ -2,6 +2,7 @@ import { useEffect, useState, useContext, useCallback } from 'react';
 import { Web3Context } from '../context';
 import * as PushAPI from '@pushprotocol/restapi';
 import { NotificationItem, chainNameType } from '@pushprotocol/uiweb';
+import { Text } from '@chakra-ui/react';
 
 
 const NotificationsTest = () => {
@@ -33,12 +34,11 @@ const NotificationsTest = () => {
       <div>
         <div>
           <div>
-            <b className='headerText'>Notifications: </b>
+            <Text as='b' fontSize='xl'>Notifications: </Text>
             <div>
               {notifs ? (
                 <div>
                   {notifs.map((oneNotification, i) => {
-  
                   const { 
                     cta,
                     title,
@@ -73,7 +73,6 @@ const NotificationsTest = () => {
             </div>
             </div>
         </div>
-
       </div>
   );
 }
